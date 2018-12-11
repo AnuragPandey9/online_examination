@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-6 col-md-4 col-md-offset-4">
+          <h1 class="text-center login-title">Sign in to continue</h1>
+          <div class="account-wall">
+              <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                  alt="">
+              <form [formGroup]="formData" class="form-signin">
+              <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required autofocus>
+              <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autofocus required>
+              <button class="btn btn-lg btn-primary btn-block" (click)="emailLogin()">
+                  Sign in</button>
+              <label class="checkbox pull-left">
+                  <input type="checkbox" value="remember-me">
+                  Remember me
+              </label>
+              <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+              </form>
+          </div>
+          <a class="text-center new-account" (click)="googlelogin()">Sign In using Google</a>
+      </div>
+  </div>
+</div>

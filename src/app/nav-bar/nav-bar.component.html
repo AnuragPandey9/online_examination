@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Redux-Rxjs-App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <a class="nav-link"  [routerLink]="['/Home']">Home</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link"  [routerLink]="['/Audio Books']">Audio Books</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link"  [routerLink]="['/Blogs']">Blogs</a>
+      </li>
+      <form class="form-inline my-2 my-lg-0"> 
+        <li>
+        <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+          <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Generes</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownManual">
+            <button class="dropdown-item" [routerLink]="['/Fatasy']">Fantasy</button>
+            <button class="dropdown-item" [routerLink]="['/Science']">Science</button>
+            <button class="dropdown-item" [routerLink]="['/Horror']">Horror</button>
+          </div>
+          </div>
+        </li>    
+      <li><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></li>
+      <li><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></li>
+    </form>
+    </ul>
+    <ng-template #noUser>
+          <a class="nav-link"  [routerLink]="['/Sign In']">Sign In/ Register</a>    
+    </ng-template>
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown" *ngIf="authService.user$ |async as user; else noUser">
+        <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">{{user.displayName}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownManual">
+          <button class="dropdown-item" [routerLink]="['/Fatasy']">My Bucket</button>
+          <button class="dropdown-item" [routerLink]="['/Science']">My Orders</button>
+          <button class="dropdown-item" [routerLink]="['/Horror']">My Profile</button>
+          <button class="dropdown-item" (click)="logOut()">Log Out</button>
+        </div>
+    </div> 
+  </div>
+</nav>
+<router-outlet></router-outlet>

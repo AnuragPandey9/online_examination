@@ -1,0 +1,18 @@
+.inputText{
+    margin-left:25%;
+    height:30px;
+    width:550px;
+    border:1px solid black;
+    margin-top:5%;
+    padding:15px 5px 15px 10px;
+}
+input{
+    width:400px;
+    height:20px;
+    border-radius: 1px;
+}
+span{
+    color:black;
+    font-display: block;
+    margin-left:15px;
+}
